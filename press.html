@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press & Awards | DelMuro Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .press-hero {
+      background: var(--near-black);
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    .press-hero__headline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .press-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .press-grid {
+      background: var(--off-white);
+      padding: var(--section-pad) 0;
+    }
+    .press-grid__inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .press-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid var(--gray-light);
+      box-shadow: 4px 6px 0px 0px var(--slate);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .press-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 4px 12px 0px 0px var(--slate);
+    }
+    .press-card__img {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 4px;
+      padding: 20px;
+    }
+    .press-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .press-card__img-placeholder {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    .press-card__source {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+    }
+    .press-card__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--green-dark);
+      line-height: 1.3;
+    }
+    .press-card__date {
+      font-size: 0.82rem;
+      color: var(--gray-mid);
+    }
+    .press-card__desc {
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .press-card__link {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      text-decoration: none;
+      margin-top: auto;
+      transition: color 0.2s;
+    }
+    .press-card__link:hover { color: var(--green-accent); }
+    .press-card--no-link .press-card__link { display: none; }
+
+    @media (max-width: 900px) {
+      .press-grid__inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px) {
+      .press-grid__inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">DelMuro<span>Designs</span></a>
+      <div class="nav__links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#process">Process</a>
+        <a href="press.html">Press</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact" class="btn btn--sm">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="press-hero">
+    <div class="container">
+      <h1 class="press-hero__headline">DelMuro Designs Press and Awards</h1>
+      <p class="press-hero__sub">Media coverage, features, and recognition from across the country.</p>
+    </div>
+  </section>
+
+  <!-- PRESS GRID -->
+  <section class="press-grid">
+    <div class="container">
+      <div class="press-grid__inner">
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/forbes-logo-0.png" alt="Forbes"></div>
+          <span class="press-card__source">Forbes</span>
+          <h2 class="press-card__title">How Looking Back to the Past Can Help You Confidently Move Forward</h2>
+          <span class="press-card__date">March 18, 2019</span>
+          <p class="press-card__desc">Entrepreneur feature highlighting Ray DelMuro's career journey and approach to overcoming challenges.</p>
+          <a href="https://www.forbes.com/sites/davidsturt/2019/03/18/how-looking-back-to-the-past-can-help-you-confidently-move-forward-one-entrepreneurs-story/" class="press-card__link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/Inc._magazine_logo_white_background.jpg" alt="Inc. Magazine"></div>
+          <span class="press-card__source">Inc. Magazine</span>
+          <h2 class="press-card__title">Your Biggest Struggles Might Be the Most Valuable Moments of Your Career</h2>
+          <span class="press-card__date"></span>
+          <p class="press-card__desc">Business advice article discussing how professional challenges contribute to long-term success.</p>
+          <a href="https://www.inc.com/todd-nordstrom/your-biggest-struggles-might-be-most-valuable-moments-of-your-career-heres-how-to-use-them-to-get-ahead.html" class="press-card__link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/USA-Today-logo.png" alt="USA Today"></div>
+          <span class="press-card__source">USA Today</span>
+          <h2 class="press-card__title">Business Gives Wine Bottles New Uses</h2>
+          <span class="press-card__date">June 2, 2013</span>
+          <p class="press-card__desc">News story covering creative business applications for recycled wine bottles and the Refresh Glass initiative.</p>
+          <a href="https://www.usatoday.com/story/news/nation/2013/06/02/business-gives-wine-bottles-new-uses/2381187/" class="press-card__link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/H&DF.png" alt="H&DF Magazine"></div>
+          <span class="press-card__source">H&DF Magazine</span>
+          <h2 class="press-card__title">Ray DelMuro — Refresh Glass</h2>
+          <span class="press-card__date"></span>
+          <p class="press-card__desc">Magazine feature covering the Refresh Glass product line and the story behind it.</p>
+          <a href="https://hdfmagazine.com/ray-delmuro-refresh-glass/" class="press-card__link" target="_blank" rel="noopener">Read Article →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/MSNBC-Logo.wine.png" alt="MSNBC"></div>
+          <span class="press-card__source">MSNBC — Your Business</span>
+          <h2 class="press-card__title">Glass Guide: Raising a Glass to Mentorship</h2>
+          <span class="press-card__date"></span>
+          <p class="press-card__desc">Business news segment exploring mentorship and entrepreneurship through the Refresh Glass concept.</p>
+          <a href="https://www.msnbc.com/your-business/watch/glass-guide-raising-a-glass-to-mentorship-631962691890" class="press-card__link" target="_blank" rel="noopener">Watch Segment →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/az highways.jpeg" alt="Arizona Highways"></div>
+          <span class="press-card__source">Arizona Highways</span>
+          <h2 class="press-card__title">Refresh Glass — Arizona Highways Feature</h2>
+          <span class="press-card__date"></span>
+          <p class="press-card__desc">Television segment profiling the Refresh Glass business and its Arizona roots.</p>
+          <a href="https://www.arizonahighways.com/article/refresh-glass" class="press-card__link" target="_blank" rel="noopener">Read Feature →</a>
+        </div>
+
+        <div class="press-card">
+          <div class="press-card__img"><img src="images/About Logos/az highways.jpeg" alt="Arizona Highways"></div>
+          <span class="press-card__source">Arizona Highways — Photo of the Day</span>
+          <h2 class="press-card__title">Photography Featured Multiple Times</h2>
+          <span class="press-card__date">June 2019 · June 2020 · August 2020</span>
+          <p class="press-card__desc">Photography selected as featured images in Arizona Highways' daily photo series across multiple editions.</p>
+          <a href="https://www.arizonahighways.com" class="press-card__link" target="_blank" rel="noopener">Visit Arizona Highways →</a>
+        </div>
+
+        <div class="press-card press-card--no-link">
+          <div class="press-card__img"><span class="press-card__img-placeholder">Add Image</span></div>
+          <span class="press-card__source">Street Rodder Magazine</span>
+          <h2 class="press-card__title">Drawing Published in Street Rodder Magazine</h2>
+          <span class="press-card__date"></span>
+          <p class="press-card__desc">Artist drawing submitted and published during college years — an early creative milestone.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">DelMuro<span>Designs</span></div>
+      <p class="footer__tagline">Turning Green Into Growth</p>
+      <p class="footer__copy">&copy; 2026 DelMuro Designs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

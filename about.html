@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Ray DelMuro | DelMuro Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* === PAGE HERO === */
+    .about-hero {
+      background: var(--near-black);
+      padding: 160px 0 100px;
+    }
+    .about-hero__inner {
+      overflow: hidden;
+    }
+    .about-hero__photo {
+      float: right;
+      width: 380px;
+      aspect-ratio: 3/4;
+      background: var(--charcoal);
+      border-radius: 16px;
+      border: 2px dashed rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 0 0 32px 56px;
+    }
+    .about-hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+    .about-photo__placeholder {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .about-hero__content {
+      padding-top: 12px;
+    }
+    .about-hero__label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .about-hero__name {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+    .about-hero__bio p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-hero__bio p:last-child { margin-bottom: 0; }
+    .about-hero__quote {
+      margin-top: 40px;
+      border-left: 4px solid var(--green-dark);
+      padding-left: 24px;
+    }
+    .about-hero__quote p {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .about-hero__quote cite {
+      display: block;
+      margin-top: 12px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-style: normal;
+    }
+
+    .about__link {
+      color: var(--slate);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .about__link:hover { color: var(--slate-light); }
+
+    /* === REFRESH GLASS === */
+    .refresh {
+      background: var(--white);
+      padding: var(--section-pad) 0;
+    }
+    .refresh__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .refresh__label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .refresh__headline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--near-black);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 40px;
+    }
+    .refresh__body p {
+      font-size: 1rem;
+      color: var(--charcoal);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .refresh__body p:last-child { margin-bottom: 0; }
+    .refresh__photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .refresh__photo-cell {
+      aspect-ratio: 1/1;
+      background: var(--off-white-alt);
+      border-radius: 12px;
+      border: 2px dashed var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .refresh__photo-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    .refresh__photo-placeholder {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    .refresh__stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .refresh__stat {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 36px;
+      border: 1px solid var(--gray-light);
+      box-shadow: 4px 4px 0px 0px var(--slate);
+    }
+    .refresh__stat-num {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--green-dark);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .refresh__stat-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .refresh__clients {
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid var(--gray-light);
+    }
+    .refresh__clients-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 28px;
+      display: block;
+      text-align: center;
+    }
+    .refresh__client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .refresh__client-cell {
+      aspect-ratio: 3/2;
+      background: var(--white);
+      border-radius: 12px;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      overflow: hidden;
+      padding: 16px;
+    }
+    .refresh__client-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .refresh__client-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-align: center;
+    }
+    .refresh__client-add {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    /* === PHOTOGRAPHY === */
+    .photography {
+      background: var(--near-black);
+      padding: var(--section-pad) 0;
+    }
+    .photography__label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+      display: block;
+      text-align: center;
+    }
+    .photography__headline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .photography__intro {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .photo-gallery__cell {
+      aspect-ratio: 1/1;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border: 2px dashed rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .photo-gallery__cell:hover { border-color: rgba(255,255,255,0.25); }
+    .photo-gallery__cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    .photo-gallery__placeholder {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 860px) {
+      .refresh__inner { grid-template-columns: 1fr; gap: 48px; }
+      .refresh__stats { grid-template-columns: repeat(2, 1fr); }
+      .about-hero__photo { float: none; width: 100%; margin: 0 0 36px 0; aspect-ratio: 4/3; }
+      .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .refresh__stats { grid-template-columns: 1fr; }
+      .photo-gallery { grid-template-columns: 1fr; }
+      .refresh__client-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">DelMuro<span>Designs</span></a>
+      <div class="nav__links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#process">Process</a>
+        <a href="press.html">Press</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact" class="btn btn--sm">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BIO HERO -->
+  <section class="about-hero">
+    <div class="container about-hero__inner">
+
+      <div class="about-hero__content">
+        <span class="about-hero__label">Founder &amp; Designer</span>
+        <h1 class="about-hero__name">Ray DelMuro</h1>
+        <div class="about-hero__bio">
+          <div class="about-hero__photo">
+            <span class="about-photo__placeholder">Add Photo</span>
+          </div>
+
+          <p>Ray DelMuro is an engineer, designer, fabricator, and entrepreneur best known as the founder of <a href="https://www.refreshglass.com" target="_blank" rel="noopener" class="about__link">Refresh Glass</a>, the Arizona-based company that has transformed more than 1.6 million rescued wine bottles into functional glassware, custom gifts, and large-scale branded experiences for companies including the Chicago Cubs, Cavaliers, Hyatt, Whole Foods, Ritz-Carlton, and Francis Ford Coppola Winery.</p>
+          <p>Before launching Refresh Glass in 2008, Ray built his career in advanced manufacturing and engineering, beginning with Toyota's renowned NUMMI facility — where he trained in lean manufacturing and the Toyota Production System — before moving into aerospace manufacturing leadership roles at Toyota Motor Corporation and C&amp;D Zodiac Aerospace. He later became Director of Manufacturing Technology, overseeing CNC systems and fabrication technologies across 16 divisions.</p>
+          <p>Despite success in engineering, Ray felt pulled toward something more creative and human-centered. After leaving aerospace, he spent a year traveling through 21 countries with a backpack and a camera — an experience that reshaped his perspective on design, storytelling, and community impact. Refresh Glass emerged from that pivot: an effort to combine the precision of engineering, the emotional connection of art, and the purpose-driven thinking of conscious business into one company.</p>
+          <p>Today, Ray leads DelMuro Designs, where he creates custom large-scale experiential installations, branded fabrication projects, and engineered art pieces that blend craftsmanship, sustainability, and storytelling. His work sits at the intersection of beauty, utility, and impact — transforming recycled and fabricated materials into memorable brand experiences and conversation pieces.</p>
+          <p>Ray has spoken at TEDx Phoenix, the Conscious Capitalism CEO Summit, and numerous leadership and community events, where he shares his "5x5 Impact Method" — a framework for helping organizations create authentic differentiation while generating meaningful community impact at the same time.</p>
+          <p>Outside of work, Ray continues to design and build furniture, develop custom fabrication tooling, restore hot rods, play hockey, and pursue landscape photography and traditional art.</p>
+        </div>
+        <div class="about-hero__quote">
+          <p>"Style, function, and purpose go together like left wing, right wing, and steering. Heart, head, and hands. I enjoy pursuing projects that embody beauty, utility, and values concurrently."</p>
+          <cite>— Ray DelMuro</cite>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT REFRESH GLASS -->
+  <section class="refresh">
+    <div class="container">
+
+      <!-- Heading sits above the two-column layout -->
+      <span class="refresh__label">Origin Story</span>
+      <h2 class="refresh__headline">About Refresh Glass</h2>
+
+      <!-- Top: text left, photo grid right -->
+      <div class="refresh__inner">
+        <div class="refresh__body">
+          <p>Refresh Glass was founded in 2008 with a simple but powerful idea: rescue discarded wine bottles from restaurants and hotels, and transform them into functional, stylish glassware, custom gifts, and large-scale branded experiences.</p>
+          <p>The company partners with restaurants, hotels, and venues to collect bottles weekly — reducing their waste disposal needs while diverting millions of bottles from landfills. Each bottle is cleaned, cut, and crafted into a product that becomes a conversation piece at dinner tables and conference tables alike.</p>
+          <p>Products can be personalized with names or logos, making them ideal for corporate gifting, events, and branded activations. Clients use Refresh Glass products as proof that they walk the sustainability talk — in a fun, functional, and stylish way.</p>
+          <p>Refresh Glass is currently operating the <strong>10 Million Bottle Rescue Mission</strong>, continuing its commitment to keeping bottles out of landfills and in the hands of people who value both craftsmanship and purpose.</p>
+        </div>
+
+        <div class="refresh__photo-grid">
+          <div class="refresh__photo-cell"><img src="images/Refresh glass/refresh glass 1.jpg" alt="Refresh Glass"></div>
+          <div class="refresh__photo-cell"><img src="images/Refresh glass/refresh glass 2.jpg" alt="Refresh Glass"></div>
+          <div class="refresh__photo-cell"><img src="images/Refresh glass/refresh glass 3.jpg" alt="Refresh Glass"></div>
+          <div class="refresh__photo-cell"><img src="images/Refresh glass/refresh glass 4.jpg" alt="Refresh Glass"></div>
+        </div>
+      </div>
+
+      <!-- Stat cards: 2x2 full width -->
+      <div class="refresh__stats">
+        <div class="refresh__stat">
+          <div class="refresh__stat-num">1.6M+</div>
+          <div class="refresh__stat-label">Rescued wine bottles transformed into products</div>
+        </div>
+        <div class="refresh__stat">
+          <div class="refresh__stat-num">2008</div>
+          <div class="refresh__stat-label">Founded in Arizona</div>
+        </div>
+        <div class="refresh__stat">
+          <div class="refresh__stat-num">10M</div>
+          <div class="refresh__stat-label">Bottle Rescue Mission — currently underway</div>
+        </div>
+        <div class="refresh__stat">
+          <div class="refresh__stat-num">100%</div>
+          <div class="refresh__stat-label">Made in the USA</div>
+        </div>
+      </div>
+
+      <!-- Notable Clients: full width logo grid -->
+      <div class="refresh__clients">
+        <span class="refresh__clients-label" style="color: var(--green-dark);">Refresh Glass Clients</span>
+        <div class="refresh__client-grid">
+          <div class="refresh__client-cell"><img src="images/About Logos/nasa-logo.svg" alt="NASA"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/001-nike-logos-swoosh-black.jpg" alt="Nike"></div>
+          <div class="refresh__client-cell"><img src="images/logos/wm-logo-color-600x400.jpg" alt="WM"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Chase_Bank-Logo.wine.svg" alt="Chase Bank"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Volvo-Logo-wordmark-1970.png" alt="Volvo"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/375x250_epa_logo_blue.png" alt="US EPA"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Chicago-Cubs-logo.png" alt="Chicago Cubs"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Cleveland_Cavaliers_secondary_logo.svg.png" alt="Cavaliers"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/hyatt_logo.png" alt="Hyatt"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Whole_Foods_Market_logo.svg" alt="Whole Foods"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/Ritz-Carlton-Logo-1965.png" alt="Ritz-Carlton"></div>
+          <div class="refresh__client-cell"><img src="images/About Logos/CoppolaDiamond_Logo_Black.png" alt="Francis Ford Coppola Winery"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT DELMURO PHOTOGRAPHY -->
+  <section class="photography">
+    <div class="container">
+      <span class="photography__label">Creative Work</span>
+      <h2 class="photography__headline">About DelMuro Photography</h2>
+      <p class="photography__intro">Ray DelMuro is an engineer, artist, and professional photographer with work published in several major outlets.</p>
+
+      <div class="photo-gallery">
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">DelMuro<span>Designs</span></div>
+      <p class="footer__tagline">Turning Green Into Growth</p>
+      <p class="footer__copy">&copy; 2026 DelMuro Designs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
