@@ -263,7 +263,7 @@
       color: var(--gray-mid);
     }
 
-    /* === PHOTOGRAPHY === */
+    /* === PHOTOGRAPHY / CREATIVE PROJECTS === */
     .photography {
       background: var(--near-black);
       padding: var(--section-pad) 0;
@@ -293,54 +293,129 @@
       font-size: 1.05rem;
       color: rgba(255,255,255,0.7);
       line-height: 1.75;
-      max-width: 640px;
-      margin: 0 auto 64px;
+      max-width: 680px;
+      margin: 0 auto 80px;
       text-align: center;
     }
-    .photo-gallery {
+
+    /* === PILLARS === */
+    .pillar {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 72px;
+      align-items: start;
+      padding: 72px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .photo-gallery__cell {
-      aspect-ratio: 1/1;
-      background: rgba(255,255,255,0.05);
+    .pillar--reverse .pillar__content { order: 2; }
+    .pillar--reverse .pillar__photos  { order: 1; }
+
+    .pillar__tag {
+      display: block;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 20px;
+    }
+    .pillar__headline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .pillar__body {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.85;
+    }
+
+    /* Photo grid: 1 large feature + 2 smaller stacked */
+    .pillar__photos {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      height: clamp(380px, 40vw, 520px);
+    }
+    .pillar__photo {
       border-radius: 12px;
-      border: 2px dashed rgba(255,255,255,0.12);
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+      border: 1px dashed rgba(255,255,255,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      transition: border-color 0.2s;
     }
-    .photo-gallery__cell:hover { border-color: rgba(255,255,255,0.25); }
-    .photo-gallery__cell img {
+    .pillar__photo--feature {
+      grid-row: span 2;
+    }
+    .pillar__photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 10px;
       display: block;
     }
-    .photo-gallery__placeholder {
+    .pillar__photo-placeholder {
       font-family: var(--font-head);
       font-weight: 600;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.2);
     }
 
+    /* Closing quote */
+    .pillar__quote {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 72px 0 0;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pillar__quote p {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--white);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .pillar__quote cite {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-style: normal;
+    }
+
     /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .pillar { grid-template-columns: 1fr 1.4fr; gap: 48px; }
+    }
     @media (max-width: 860px) {
       .refresh__inner { grid-template-columns: 1fr; gap: 48px; }
       .refresh__stats { grid-template-columns: repeat(2, 1fr); }
       .about-hero__photo { float: none; width: 100%; margin: 0 0 36px 0; aspect-ratio: 4/3; }
-      .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+      .pillar { grid-template-columns: 1fr; gap: 36px; }
+      .pillar--reverse .pillar__content { order: 0; }
+      .pillar--reverse .pillar__photos  { order: 0; }
+      .pillar__photos { height: clamp(280px, 70vw, 420px); }
     }
     @media (max-width: 480px) {
       .refresh__stats { grid-template-columns: 1fr; }
-      .photo-gallery { grid-template-columns: 1fr; }
       .refresh__client-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillar__photos { grid-template-columns: 1fr 1fr; height: auto; }
+      .pillar__photo--feature { grid-row: span 1; aspect-ratio: 1/1; }
+      .pillar__photo { aspect-ratio: 1/1; }
     }
   </style>
 </head>
@@ -349,7 +424,7 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner container">
-      <a href="index.html" class="nav__logo">DelMuro<span>Designs</span></a>
+      <a href="index.html" class="nav__logo"><img src="images/Delmuro designs logo transparent.png" alt="DelMuro Designs"></a>
       <div class="nav__links">
         <a href="index.html#work">Work</a>
         <a href="index.html#process">Process</a>
@@ -360,29 +435,59 @@
     </div>
   </nav>
 
-  <!-- BIO HERO -->
-  <section class="about-hero">
-    <div class="container about-hero__inner">
+  <!-- RAY'S CREATIVE PROJECTS -->
+  <section class="photography" style="padding-top: 160px;">
+    <div class="container">
+      <span class="photography__label">Head, Heart, and Hands</span>
+      <h2 class="photography__headline">Where Engineering, Art, and Purpose Meet</h2>
+      <p class="photography__intro">DelMuro Designs is built on a three-part philosophy that runs through everything we make and everyone who makes it: Head, Heart, and Hands. It's how we think, how we create, and why the work means something to us and to the clients we serve.</p>
 
-      <div class="about-hero__content">
-        <span class="about-hero__label">Founder &amp; Designer</span>
-        <h1 class="about-hero__name">Ray DelMuro</h1>
-        <div class="about-hero__bio">
-          <div class="about-hero__photo">
-            <span class="about-photo__placeholder">Add Photo</span>
-          </div>
+      <!-- PILLAR 1: HEAD / ENGINEER -->
+      <div class="pillar">
+        <div class="pillar__content">
+          <span class="pillar__tag">Head &middot; Engineer</span>
+          <h3 class="pillar__headline">Built on Precision and Systems Thinking</h3>
+          <p class="pillar__body">From the Toyota Production System to aerospace manufacturing leadership, Ray spent his career engineering things that worked — precisely, repeatably, at scale. That discipline is embedded in every DelMuro product: the tolerances, the consistency, the logistics of delivering hundreds of custom pieces without compromise.</p>
+        </div>
+        <div class="pillar__photos">
+          <div class="pillar__photo pillar__photo--feature"><img src="images/About/Head/Head About Page first Category picture_ About.jpg" alt="Ray DelMuro — Engineer"></div>
+          <div class="pillar__photo"><img src="images/About/Head/FullSizeRender.jpg" alt="Engineering work"></div>
+          <div class="pillar__photo"><img src="images/About/Head/IMG_0001.jpg" alt="Engineering work"></div>
+        </div>
+      </div>
 
-          <p>Ray DelMuro is an engineer, designer, fabricator, and entrepreneur best known as the founder of <a href="https://www.refreshglass.com" target="_blank" rel="noopener" class="about__link">Refresh Glass</a>, the Arizona-based company that has transformed more than 1.6 million rescued wine bottles into functional glassware, custom gifts, and large-scale branded experiences for companies including the Chicago Cubs, Cavaliers, Hyatt, Whole Foods, Ritz-Carlton, and Francis Ford Coppola Winery.</p>
-          <p>Before launching Refresh Glass in 2008, Ray built his career in advanced manufacturing and engineering, beginning with Toyota's renowned NUMMI facility — where he trained in lean manufacturing and the Toyota Production System — before moving into aerospace manufacturing leadership roles at Toyota Motor Corporation and C&amp;D Zodiac Aerospace. He later became Director of Manufacturing Technology, overseeing CNC systems and fabrication technologies across 16 divisions.</p>
-          <p>Despite success in engineering, Ray felt pulled toward something more creative and human-centered. After leaving aerospace, he spent a year traveling through 21 countries with a backpack and a camera — an experience that reshaped his perspective on design, storytelling, and community impact. Refresh Glass emerged from that pivot: an effort to combine the precision of engineering, the emotional connection of art, and the purpose-driven thinking of conscious business into one company.</p>
-          <p>Today, Ray leads DelMuro Designs, where he creates custom large-scale experiential installations, branded fabrication projects, and engineered art pieces that blend craftsmanship, sustainability, and storytelling. His work sits at the intersection of beauty, utility, and impact — transforming recycled and fabricated materials into memorable brand experiences and conversation pieces.</p>
-          <p>Ray has spoken at TEDx Phoenix, the Conscious Capitalism CEO Summit, and numerous leadership and community events, where he shares his "5x5 Impact Method" — a framework for helping organizations create authentic differentiation while generating meaningful community impact at the same time.</p>
-          <p>Outside of work, Ray continues to design and build furniture, develop custom fabrication tooling, restore hot rods, play hockey, and pursue landscape photography and traditional art.</p>
+      <!-- PILLAR 2: HEART / ARTIST -->
+      <div class="pillar pillar--reverse">
+        <div class="pillar__content">
+          <span class="pillar__tag">Heart &middot; Artist</span>
+          <h3 class="pillar__headline">The Aesthetic That Makes People Stop</h3>
+          <p class="pillar__body">Ray's photography has been featured in Arizona Highways. His drawings were published in Street Rodder Magazine. He builds furniture. He restores hot rods. The artistic eye behind all of it is the same one that shapes every award, gift, and piece of merchandise DelMuro Designs creates — beautiful enough that people want to show it off.</p>
         </div>
-        <div class="about-hero__quote">
-          <p>"Style, function, and purpose go together like left wing, right wing, and steering. Heart, head, and hands. I enjoy pursuing projects that embody beauty, utility, and values concurrently."</p>
-          <cite>— Ray DelMuro</cite>
+        <div class="pillar__photos">
+          <div class="pillar__photo pillar__photo--feature"><img src="images/About/Heart/_ Landscape_Oak Creek_Ray DelMuro.jpg" alt="Oak Creek landscape photography by Ray DelMuro"></div>
+          <div class="pillar__photo"><img src="images/About/Heart/LED Chair copy.jpg" alt="LED Chair — Ray DelMuro"></div>
+          <div class="pillar__photo"><img src="images/About/Heart/Sufring morro bay.jpg" alt="Surfing Morro Bay"></div>
         </div>
+      </div>
+
+      <!-- PILLAR 3: HANDS / COMMUNITY ADVOCATE -->
+      <div class="pillar">
+        <div class="pillar__content">
+          <span class="pillar__tag">Hands &middot; Community Advocate</span>
+          <h3 class="pillar__headline">Values That Show Up in the Work</h3>
+          <p class="pillar__body">Ray built Refresh Glass to prove that doing good and doing business aren't in conflict. He created the Refreshing Hour to support the children's hospital. He has worked with Habitat for Humanity and local community gardens. These aren't side projects — they're the reason DelMuro Designs exists, and the reason clients trust it to represent their values.</p>
+        </div>
+        <div class="pillar__photos">
+          <div class="pillar__photo pillar__photo--feature"><img src="images/About/Hands/P1000622.JPG" alt="Community work"></div>
+          <div class="pillar__photo"><img src="images/About/Hands/Ray and mini dump truck 1.jpg" alt="Ray DelMuro community project"></div>
+          <div class="pillar__photo"><img src="images/About/Hands/Astro Saguaro Lake 2024 a copy-2 copy.jpg" alt="Saguaro Lake astrophotography"></div>
+        </div>
+      </div>
+
+      <!-- CLOSING QUOTE -->
+      <div class="pillar__quote">
+        <p>"Style, function, &amp; purpose go together like left wing, right wing, and steering. Heart, head, and hands. I enjoy pursuing projects that embody the big three concurrently &rarr; beauty (art), utility (engineering), &amp; values (impact)."</p>
+        <cite>~ Ray DelMuro</cite>
       </div>
 
     </div>
@@ -455,31 +560,34 @@
     </div>
   </section>
 
-  <!-- ABOUT DELMURO PHOTOGRAPHY -->
-  <section class="photography">
-    <div class="container">
-      <span class="photography__label">Creative Work</span>
-      <h2 class="photography__headline">About DelMuro Photography</h2>
-      <p class="photography__intro">Ray DelMuro is an engineer, artist, and professional photographer with work published in several major outlets.</p>
+  <!-- BIO -->
+  <section class="about-hero">
+    <div class="container about-hero__inner">
 
-      <div class="photo-gallery">
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
-        <div class="photo-gallery__cell"><span class="photo-gallery__placeholder">Add Photo</span></div>
+      <div class="about-hero__content">
+        <span class="about-hero__label">Founder &amp; Designer</span>
+        <h1 class="about-hero__name">Ray DelMuro</h1>
+        <div class="about-hero__bio">
+          <div class="about-hero__photo">
+            <img src="images/About/Ray bio pic.jpg" alt="Ray DelMuro">
+          </div>
+
+          <p>Ray DelMuro is an engineer, designer, fabricator, and entrepreneur best known as the founder of <a href="https://www.refreshglass.com" target="_blank" rel="noopener" class="about__link">Refresh Glass</a>, the Arizona-based company that has transformed more than 1.6 million rescued wine bottles into functional glassware, custom gifts, and large-scale branded experiences for companies including the Chicago Cubs, Cavaliers, Hyatt, Whole Foods, Ritz-Carlton, and Francis Ford Coppola Winery.</p>
+          <p>Before launching Refresh Glass in 2008, Ray built his career in advanced manufacturing and engineering, beginning with Toyota's renowned NUMMI facility — where he trained in lean manufacturing and the Toyota Production System — before moving into aerospace manufacturing leadership roles at Toyota Motor Corporation and C&amp;D Zodiac Aerospace. He later became Director of Manufacturing Technology, overseeing CNC systems and fabrication technologies across 16 divisions.</p>
+          <p>Despite success in engineering, Ray felt pulled toward something more creative and human-centered. After leaving aerospace, he spent a year traveling through 21 countries with a backpack and a camera — an experience that reshaped his perspective on design, storytelling, and community impact. Refresh Glass emerged from that pivot: an effort to combine the precision of engineering, the emotional connection of art, and the purpose-driven thinking of conscious business into one company.</p>
+          <p>Today, Ray leads DelMuro Designs, where he creates custom large-scale experiential installations, branded fabrication projects, and engineered art pieces that blend craftsmanship, sustainability, and storytelling. His work sits at the intersection of beauty, utility, and impact — transforming recycled and fabricated materials into memorable brand experiences and conversation pieces.</p>
+          <p>Ray has spoken at TEDx Phoenix, the Conscious Capitalism CEO Summit, and numerous leadership and community events, where he shares his "5x5 Impact Method" — a framework for helping organizations create authentic differentiation while generating meaningful community impact at the same time.</p>
+          <p>Outside of work, Ray continues to design and build furniture, develop custom fabrication tooling, restore hot rods, play hockey, and pursue landscape photography and traditional art.</p>
+        </div>
       </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__logo">DelMuro<span>Designs</span></div>
+      <div class="footer__logo"><img src="images/Delmuro designs logo transparent.png" alt="DelMuro Designs"></div>
       <p class="footer__tagline">Turning Green Into Growth</p>
       <p class="footer__copy">&copy; 2026 DelMuro Designs. All rights reserved.</p>
     </div>
