@@ -68,6 +68,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--green-dark);
   margin-bottom: 28px;
+  text-align: center;
 }
 
 /* === SCROLL ANIMATIONS === */
