@@ -953,6 +953,79 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
+   SECTION 4c — TESTIMONIAL
+   ============================================================ */
+.testimonial {
+  background: var(--green-dark);
+  padding: 100px 0;
+}
+
+.testimonial__inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.testimonial__logo-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  padding-right: 80px;
+}
+
+.testimonial__logo {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.testimonial__quote-col {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px 52px;
+}
+
+.testimonial__quote-mark {
+  font-family: var(--font-head);
+  font-size: 5rem;
+  line-height: 0.5;
+  color: var(--green-dark);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.testimonial__text {
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  color: var(--near-black);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.testimonial__cite {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  font-style: normal;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .testimonial__inner { grid-template-columns: 1fr; gap: 40px; }
+  .testimonial__logo-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding-right: 0; padding-bottom: 40px; }
+  .testimonial__logo { max-width: 180px; }
+}
+
+/* ============================================================
    SECTION 5 — 5 RELATIONSHIPS
    ============================================================ */
 .relationships {
@@ -1081,6 +1154,9 @@ h1, h2, h3, h4 {
 
 .case--reverse .case__visual { order: 2; }
 .case--reverse .case__content { order: 1; }
+.case--feature { grid-template-columns: 1fr 2fr; align-items: start; row-gap: 16px; }
+.case--feature .case__header { grid-column: 1 / -1; }
+.case--feature .case__img { aspect-ratio: unset; height: 100%; min-height: 420px; }
 
 .case__img {
   width: 100%;
@@ -1112,6 +1188,17 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 28px;
+}
+
+.case__full-img {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+}
+.case__full-img img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+  object-fit: cover;
 }
 
 .case__block h4 {
