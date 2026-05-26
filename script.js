@@ -120,3 +120,63 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+
+// === BOOKING MODAL ===
+(function () {
+  const overlay = document.getElementById('bookingModal');
+  if (!overlay) return;
+
+  const modal   = overlay.querySelector('.modal');
+  const closeBtn = overlay.querySelector('.modal__close');
+  const form    = overlay.querySelector('.modal__form');
+  const success = overlay.querySelector('.modal__success');
+
+  function openModal() {
+    overlay.classList.add('is-open');
+    overlay.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+    form.querySelector('input').focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.js-book-modal').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', e => {
+    if (!modal.contains(e.target)) closeModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // AJAX submit — show success state, fallback to native on error
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.hidden = true;
+        success.hidden = false;
+        setTimeout(closeModal, 2500);
+      } else {
+        form.submit();
+      }
+    } catch {
+      form.submit();
+    }
+  });
+})();
