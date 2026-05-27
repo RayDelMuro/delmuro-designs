@@ -122,6 +122,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 
+// === LAZY LOAD VIMEO IFRAME ===
+(function () {
+  const iframe = document.querySelector('.visibility__video-placeholder iframe[data-src]');
+  if (!iframe) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      iframe.src = iframe.dataset.src;
+      observer.unobserve(iframe);
+    });
+  }, { rootMargin: '200px' });
+
+  observer.observe(iframe);
+})();
+
+
 // === BOOKING MODAL ===
 (function () {
   const overlay = document.getElementById('bookingModal');
