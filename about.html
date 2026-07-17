@@ -153,7 +153,6 @@
       aspect-ratio: 1/1;
       background: var(--off-white-alt);
       border-radius: 12px;
-      border: 2px dashed var(--gray-light);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -177,7 +176,7 @@
 
     .refresh__stats {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 56px;
     }
@@ -372,7 +371,7 @@
 
     /* Closing quote */
     .pillar__quote {
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--gray-light);
       padding: 72px 0 0;
       max-width: 800px;
       margin: 0 auto;
@@ -382,7 +381,7 @@
       font-family: var(--font-head);
       font-weight: 700;
       font-size: clamp(1.1rem, 2vw, 1.5rem);
-      color: var(--white);
+      color: var(--near-black);
       line-height: 1.65;
       font-style: italic;
       margin-bottom: 24px;
@@ -417,6 +416,90 @@
       .pillar__photo--feature { grid-row: span 1; aspect-ratio: 1/1; }
       .pillar__photo { aspect-ratio: 1/1; }
     }
+
+    /* === LIGHTBOX === */
+    .lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.93);
+      align-items: center;
+      justify-content: center;
+    }
+    .lb-overlay.is-open { display: flex; }
+    .lb-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .lb-img {
+      width: 92vw;
+      height: 88vh;
+      max-width: 1400px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    }
+    .lb-caption {
+      color: rgba(255,255,255,0.6);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      text-align: center;
+      margin: 0;
+    }
+    .lb-close {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 2.8rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s;
+      z-index: 10000;
+    }
+    .lb-close:hover { color: #fff; }
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 1.4rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10000;
+    }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.22); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-counter {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+    [data-lb] { cursor: zoom-in; }
   </style>
 </head>
 <body>
@@ -424,26 +507,166 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner container">
-      <a href="index.html" class="nav__logo"><img src="images/Delmuro designs logo transparent.png" alt="DelMuro Designs"></a>
+      <a href="index.html" class="nav__logo"><img src="images/DD LOGOS/med Horizontal ACTIVE DD logo no taglines.png" alt="DelMuro Designs"></a>
       <div class="nav__links">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#process">Process</a>
+        <a href="process.html">Proven Process</a>
+        <a href="projects.html">Projects</a>
         <a href="press.html">Press</a>
-        <a href="about.html">About</a>
-        <a href="index.html#contact" class="btn btn--sm">Book a Call</a>
+        <a href="about.html">Passions</a>
+        <a href="index.html#contact" class="btn btn--sm">Let's Connect</a>
       </div>
     </div>
   </nav>
 
-  <!-- RAY'S CREATIVE PROJECTS -->
-  <section class="photography" style="padding-top: 160px;">
+  <!-- SECTION: HEY I'M RAY -->
+  <section class="ray-section" style="padding-bottom: 40px;">
+    <div class="container ray-inner">
+
+      <!-- Mosaic — 3 photos -->
+      <div class="ray-mosaic">
+        <div class="ray-mosaic__top">
+          <img src="images/About/14 We built a lot of the equipment to melt the glass rims at 1500F ourselves..jpg" alt="Ray DelMuro" class="ray-img" loading="lazy">
+        </div>
+        <div class="ray-mosaic__bottom">
+          <img src="images/Ray Banner my story-Recovered copy.jpg" alt="Ray's story" class="ray-img" loading="lazy">
+        </div>
+        <div class="ray-mosaic__pano">
+          <img src="images/About/21The Milky Way Rainbow as a panorama shot over the red rocks in Sedona, Arizona.  These are 15 shots stitched together..jpg" alt="Sedona Milky Way — Ray DelMuro photography" class="ray-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="ray-copy">
+        <span class="ray-eyebrow">Behind the Mission</span>
+        <h2 class="ray-headline">Hey, I'm Ray.</h2>
+        <p class="ray-intro">The maker dude behind DelMuro Designs.</p>
+
+        <div class="ray-body">
+          <p>I was an engineer first — for Toyota, then an aerospace company in Huntington Beach, CA. 20 years ago in 2006, I had calculated that I'd work over 100,000 hours in my life and I decided to pivot. I wanted to functionally combine engineering, art, and real impact. I had no idea how to get there — so I had a crazy idea and left on a 12-month trip around the world, visiting 21 countries and 39 cities. I fell in love with photography along the way, a passion that fuels DelMuro Designs content creation for our clients to this day. My photography has been shown in a gallery in Tucson for the past few years.</p>
+
+          <p>I returned to the US in 2007 and started Refresh Glass — where we have rescued over 2 million bottles by turning them into glassware, self-watering planters, and other useful products and personalized gifts. The core of my operational vision for DelMuro Designs combines logic, engagement, and alignment: <strong>Head, Heart, and Hands.</strong> Doing so by working with multiple organization stakeholders to rescue many material types and flipping the script on sustainability, from as an expense center, to a growth driver. Engineering makes things useful. Art makes them enjoyable. Alignment is character lived through your values in action.</p>
+
+          <p>Why can't sustainability be profitable? It can, and it will. We just need to keep innovating and iterating.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: RAY'S STORY GALLERY CTA -->
+  <section style="background: var(--off-white); padding: 0 0 80px; text-align: center;">
     <div class="container">
-      <span class="photography__label">Head, Heart, and Hands</span>
+      <button id="open-gallery" class="btn btn--primary btn--lg">View Ray's Story in Pictures</button>
+    </div>
+  </section>
+
+  <!-- SECTION: THE COMBINATION -->
+  <section style="background: var(--white); padding: 80px 0;">
+    <div class="container">
+      <h2 style="font-family: var(--font-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); color: var(--near-black); letter-spacing: -0.03em; line-height: 1.05; text-align: center; margin: 0 auto 32px;">The combination that drives us!</h2>
+
+      <!-- TRIAD MATRIX -->
+      <div style="margin:0 0 44px;">
+        <p style="font-family:'Inter',sans-serif; font-weight:400; font-size:1.05rem; line-height:1.65; color:#3A3D3B; margin:0;">We are driven as a group to combine same three human faculties that have been written about as inseparable and interconnected for over 2,400 years. What Plato calls Truth, Beauty, and Goodness can be viewed as the <strong style="color:#3D6E8E; font-weight:600;">head</strong> that reasons, the <strong style="color:#C2596A; font-weight:600;">heart</strong> that feels, and the <strong style="color:#2F8F4E; font-weight:600;">hands</strong> that act. Logic, emotion, and morality. Think: organs and an organism. 3 and also 1. We have endeavored to functionally combine these 3 interrelated ideals into a vehicle for turning green into growth&hellip; through your most important relationships. We do so by using engineering, art, and shared values in action as tools to help you connect over time on all three fundamental levels.</p>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #D2CCCC; border-radius:14px; box-shadow:4px 6px 0 0 #627E8B; overflow:hidden;">
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; min-width:720px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; vertical-align:bottom; padding:16px 24px; background:#F4F6F3; border-bottom:2px solid #E4E2E2;">
+                  <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:#9AA29C;">The lens</span>
+                </th>
+                <th style="text-align:left; vertical-align:bottom; padding:16px 24px; background:#EEF3F6; border-bottom:2px solid #3D6E8E;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; letter-spacing:-0.01em; color:#3D6E8E;">Head</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:500; font-size:0.82rem; font-style:italic; color:#6E8CA0; margin-top:3px;">Function &amp; Utility</div>
+                </th>
+                <th style="text-align:left; vertical-align:bottom; padding:16px 24px; background:#F7EEEF; border-bottom:2px solid #C2596A;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; letter-spacing:-0.01em; color:#C2596A;">Heart</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:500; font-size:0.82rem; font-style:italic; color:#B08089; margin-top:3px;">How it makes you feel</div>
+                </th>
+                <th style="text-align:left; vertical-align:bottom; padding:16px 24px; background:#EDF4EF; border-bottom:2px solid #2F8F4E;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; letter-spacing:-0.01em; color:#2F8F4E;">Hands</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:500; font-size:0.82rem; font-style:italic; color:#6E9C7C; margin-top:3px;">Values through decisions</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tri-row" style="transition:background .15s ease;">
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; background:#FBFCFA;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.02rem; color:#111412;">Plato's Big Three</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:400; font-style:italic; font-size:0.82rem; color:#9AA29C; margin-top:2px;">the philosophy</div>
+                </td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#3D6E8E;">Truth</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#C2596A;">Beauty</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#2F8F4E;">Goodness</td>
+              </tr>
+              <tr class="tri-row" style="transition:background .15s ease;">
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; background:#FBFCFA;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.02rem; color:#111412;">The Vehicle</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:400; font-style:italic; font-size:0.82rem; color:#9AA29C; margin-top:2px;">From here to there</div>
+                </td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#3D6E8E;">Plane</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#C2596A;">Fuel</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#2F8F4E;">Navigation</td>
+              </tr>
+              <tr class="tri-row" style="transition:background .15s ease;">
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; background:#FBFCFA;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.02rem; color:#111412;">DelMuro Designs</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:400; font-style:italic; font-size:0.82rem; color:#9AA29C; margin-top:2px;">the practice</div>
+                </td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#3D6E8E;">Engineering</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#C2596A;">Art</td>
+                <td style="padding:15px 24px; border-bottom:1px solid #EDEBEB; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#2F8F4E;">Impact</td>
+              </tr>
+              <tr class="tri-row" style="transition:background .15s ease;">
+                <td style="padding:15px 24px; background:#FBFCFA;">
+                  <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.02rem; color:#111412;">The Organization</div>
+                  <div style="font-family:'Inter',sans-serif; font-weight:400; font-style:italic; font-size:0.82rem; color:#9AA29C; margin-top:2px;">the company</div>
+                </td>
+                <td style="padding:15px 24px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#3D6E8E;">Performance</td>
+                <td style="padding:15px 24px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#C2596A;">Engagement</td>
+                <td style="padding:15px 24px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.18rem; color:#2F8F4E;">Alignment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pillar__quote" style="display:none;">
+        <p>"Style, function, &amp; purpose go together like left wing, right wing, and steering. Heart, head, and hands. I enjoy pursuing projects that embody the big three concurrently &rarr; beauty (art), utility (engineering), &amp; values (impact)."</p>
+        <cite>~ Ray DelMuro</cite>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RAY'S CREATIVE PROJECTS -->
+  <section class="photography" style="padding: 45px 0;">
+    <div class="container">
+
       <h2 class="photography__headline">Where Engineering, Art, and Purpose Meet</h2>
-      <p class="photography__intro">DelMuro Designs is built on a three-part philosophy that runs through everything we make and everyone who makes it: Head, Heart, and Hands. It's how we think, how we create, and why the work means something to us and to the clients we serve.</p>
+      <p style="font-family:'Inter',sans-serif; font-size:1.05rem; color:rgba(255,255,255,0.7); line-height:1.6; margin:16px 0 0;">Ray DelMuro talks about stakeholder engagement through the lens of the ideals of the beautiful, the true and the good at the 2017 Conscious Capitalism CEO Summit.</p>
+
+      <!-- VIDEO THUMBNAIL LINK -->
+      <a href="https://youtu.be/UclTzMHBFOw" target="_blank" rel="noopener"
+         style="display:block; position:relative; margin:48px 0; border-radius:12px; overflow:hidden; cursor:pointer; line-height:0;">
+        <img src="https://img.youtube.com/vi/UclTzMHBFOw/maxresdefault.jpg"
+             alt="Ray DelMuro — Conscious Capitalism CEO Summit 2017"
+             style="width:100%; display:block; border-radius:12px;">
+        <!-- play button overlay -->
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25); border-radius:12px; transition:background 0.2s;"
+             onmouseover="this.style.background='rgba(0,0,0,0.4)'" onmouseout="this.style.background='rgba(0,0,0,0.25)'">
+          <div style="width:72px; height:72px; background:rgba(255,0,0,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </a>
 
       <!-- PILLAR 1: HEAD / ENGINEER -->
-      <div class="pillar">
+      <div class="pillar" style="display:none;">
         <div class="pillar__content">
           <span class="pillar__tag">Head &middot; Engineer</span>
           <h3 class="pillar__headline">Built on Precision and Systems Thinking</h3>
@@ -457,7 +680,7 @@
       </div>
 
       <!-- PILLAR 2: HEART / ARTIST -->
-      <div class="pillar pillar--reverse">
+      <div class="pillar pillar--reverse" style="display:none;">
         <div class="pillar__content">
           <span class="pillar__tag">Heart &middot; Artist</span>
           <h3 class="pillar__headline">The Aesthetic That Makes People Stop</h3>
@@ -471,7 +694,7 @@
       </div>
 
       <!-- PILLAR 3: HANDS / COMMUNITY ADVOCATE -->
-      <div class="pillar">
+      <div class="pillar" style="display:none;">
         <div class="pillar__content">
           <span class="pillar__tag">Hands &middot; Community Advocate</span>
           <h3 class="pillar__headline">Values That Show Up in the Work</h3>
@@ -484,11 +707,7 @@
         </div>
       </div>
 
-      <!-- CLOSING QUOTE -->
-      <div class="pillar__quote">
-        <p>"Style, function, &amp; purpose go together like left wing, right wing, and steering. Heart, head, and hands. I enjoy pursuing projects that embody the big three concurrently &rarr; beauty (art), utility (engineering), &amp; values (impact)."</p>
-        <cite>~ Ray DelMuro</cite>
-      </div>
+      <!-- CLOSING QUOTE (moved to combination section) -->
 
     </div>
   </section>
@@ -521,16 +740,12 @@
       <!-- Stat cards: 2x2 full width -->
       <div class="refresh__stats">
         <div class="refresh__stat">
-          <div class="refresh__stat-num">1.6M+</div>
+          <div class="refresh__stat-num">2.5M+</div>
           <div class="refresh__stat-label">Rescued wine bottles transformed into products</div>
         </div>
         <div class="refresh__stat">
           <div class="refresh__stat-num">2008</div>
           <div class="refresh__stat-label">Founded in Arizona</div>
-        </div>
-        <div class="refresh__stat">
-          <div class="refresh__stat-num">10M</div>
-          <div class="refresh__stat-label">Bottle Rescue Mission — currently underway</div>
         </div>
         <div class="refresh__stat">
           <div class="refresh__stat-num">100%</div>
@@ -561,7 +776,7 @@
   </section>
 
   <!-- BIO -->
-  <section class="about-hero">
+  <section class="about-hero" style="display:none;">
     <div class="container about-hero__inner">
 
       <div class="about-hero__content">
@@ -584,15 +799,171 @@
     </div>
   </section>
 
+  <!-- SECTION: FINAL CTA -->
+  <section class="cta-final" id="contact">
+    <div class="container">
+      <h2 class="cta-final__headline">Green &amp; Greener</h2>
+      <p class="cta-final__body">Flip the script on sustainability as an expense.<br>Awards, gifts, merchandise &mdash; as tangible and lasting relationship building assets<br>built to drive real business outcomes.</p>
+      <div class="cta-final__buttons">
+        <a href="#contact" class="btn btn--primary btn--lg">Let's Connect</a>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__logo"><img src="images/Delmuro designs logo transparent.png" alt="DelMuro Designs"></div>
-      <p class="footer__tagline">Turning Green Into Growth</p>
+      <div class="footer__logo"><img src="images/DD LOGOS/med Horizontal ACTIVE DD logo no taglines.png" alt="DelMuro Designs"></div>
       <p class="footer__copy">&copy; 2026 DelMuro Designs. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lb-overlay" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" id="lb-prev" aria-label="Previous">&#8592;</button>
+    <button class="lb-next" id="lb-next" aria-label="Next">&#8594;</button>
+    <div class="lb-content">
+      <img class="lb-img" id="lb-img" src="" alt="">
+      <p class="lb-caption" id="lb-caption"></p>
+    </div>
+    <div class="lb-counter" id="lb-counter" style="display:none;"></div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay  = document.getElementById('lightbox');
+      var lbImg    = document.getElementById('lb-img');
+      var lbCap    = document.getElementById('lb-caption');
+      var lbCount  = document.getElementById('lb-counter');
+      var closeBtn = document.getElementById('lb-close');
+      var prevBtn  = document.getElementById('lb-prev');
+      var nextBtn  = document.getElementById('lb-next');
+      var openBtn  = document.getElementById('open-gallery');
+      if (!overlay || !openBtn) return;
+
+      var images = [
+        { src: 'images/About/1 Aspiring to combine forces for good from a very young age.jpg' },
+        { src: 'images/About/2 Lincoln logs are old school.  Not quite as dated as that velure shirt though, isnt it sweet!.jpg' },
+        { src: 'images/About/3  I was fascinated with MC Escher as a kid.  He was an artist and a mathematician, I always thought the two went together..jpg' },
+        { src: 'images/About/4  I chose Cal Poly San Luis Obispo becasuse their motto was learn by doing.  My major was a combination of business and engineering..jpg' },
+        { src: 'images/About/5  When I was 21 I was able to buy my dream car, a 55 Chevy 2 door DelRay..JPG' },
+        { src: 'images/About/6  I had some friends with a 60s Camero and a GTO, we would all work on our cars together then go to work at the pizza shop..jpg' },
+        { src: 'images/About/7  I got an intership at a Toyota plant in Fremont, CA where Tesla is now.  I was 1 of 4 co-op engineers who got to report to the Toyota VP of N. American Engineering.png' },
+        { src: 'images/About/8  Then after school I started working for an aerospace company as a manufacturing engineer..jpg' },
+        { src: 'images/About/9  After working in aerospace for 5 years I decided to resign and went on a trip around the world for a year.  It was an unreal experience..jpg' },
+        { src: 'images/About/10  At first I stayed with family  and friends in the US then studied spanish in Barcelona.  I picked the next city as I went after that..jpg' },
+        { src: 'images/About/11I fell in love with photography .  I would find postcard stands and ask where is that, then go there and shoot..JPG' },
+        { src: 'images/About/12  Shortly after getting back to the states I started Refresh Glass, making upcycled wine bottle products from a 1 car garage space..JPG' },
+        { src: 'images/About/13 around 2008 we had our own shop and rallied around our 10 Million Bottle Rescue Mission.  There was one point we had almost 150, 000 rescued bottles on site..jpg' },
+        { src: 'images/About/14 We built a lot of the equipment to melt the glass rims at 1500F ourselves..jpg' },
+        { src: 'images/About/15We were selling to a lot of restaurants and took a big hit with Covid shutdowns.  We transitioned to logo\'ed gifts around then..jpg' },
+        { src: 'images/About/16 I have been writing this on my gloves for years..  Art and Engineering working together, not separate but one..jpg' },
+        { src: 'images/About/17  The president of Cal Poly saw what we were up to and wrote me a letter..jpg' },
+        { src: 'images/About/18 In 2023 our friends at WM introduced us to Major League Baseball and asked if we could make their sustainability awards from recycled materials.  They were our first eco awards customer.jpg' },
+        { src: 'images/About/19  I still love drawing on occassion.   Im currently working on drawing hair.  Its really difficult..jpg' },
+        { src: 'images/About/20 I started making my own furniture when I was in colege.  LED technology has come a long way..jpg' },
+        { src: 'images/About/21The Milky Way Rainbow as a panorama shot over the red rocks in Sedona, Arizona.  These are 15 shots stitched together..jpg' }
+      ];
+
+      var current = 0;
+
+      function lbOpen(idx) {
+        current = (idx + images.length) % images.length;
+        lbImg.src = images[current].src;
+        lbCap.textContent = images[current].src.split('/').pop().replace(/\.[^.]+$/, '').replace(/^\d+[\s._-]*/, '');
+        lbCount.textContent = (current + 1) + ' / ' + images.length;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function lbClose() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      openBtn.addEventListener('click',  function () { lbOpen(0); });
+      closeBtn.addEventListener('click', lbClose);
+      prevBtn.addEventListener('click',  function () { lbOpen(current - 1); });
+      nextBtn.addEventListener('click',  function () { lbOpen(current + 1); });
+      overlay.addEventListener('click',  function (e) { if (e.target === overlay) lbClose(); });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape')     lbClose();
+        if (e.key === 'ArrowLeft')  lbOpen(current - 1);
+        if (e.key === 'ArrowRight') lbOpen(current + 1);
+      });
+    })();
+  </script>
+
+  <!-- CONTACT MODAL -->
+  <style>
+    #contact-modal{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;overflow-y:auto;}
+    #contact-modal-inner{background:#fff;border-radius:16px;padding:48px 48px 40px;max-width:660px;width:100%;position:relative;margin:auto;}
+    #cm-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:2rem;cursor:pointer;color:#aaa;line-height:1;padding:4px 8px;}
+    #cm-close:hover{color:#333;}
+    #contact-modal form{width:100%;font-family:'Inter',system-ui,sans-serif;}
+    #contact-modal form *{box-sizing:border-box;}
+    #contact-modal .cm-field{display:block;width:100%;margin-bottom:14px;}
+    #contact-modal .cm-field label{display:block;margin-bottom:5px;font-size:0.875rem;color:#374151;font-weight:500;}
+    #contact-modal input[type="text"],#contact-modal input[type="url"],#contact-modal input[type="email"],#contact-modal select,#contact-modal textarea{width:100%;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;font-family:inherit;font-size:0.95rem;color:#111;}
+    #contact-modal input:focus,#contact-modal select:focus,#contact-modal textarea:focus{outline:none;border-color:#2F8F4E;box-shadow:0 0 0 3px rgba(47,143,78,0.15);}
+    #contact-modal textarea{resize:vertical;}
+    #contact-modal fieldset{border:0;padding:0;margin:0 0 14px;}
+    #contact-modal fieldset legend{display:block;margin-bottom:8px;font-size:0.875rem;color:#374151;font-weight:500;}
+    #contact-modal fieldset label{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:0.9rem;color:#374151;}
+    #contact-modal .cm-row{display:flex;gap:16px;}
+    #contact-modal .cm-row .cm-field{flex:1;min-width:0;}
+    #contact-modal button[type="submit"]{width:100%;padding:13px 24px;border-radius:8px;border:none;background:#2F8F4E;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;transition:background 0.2s;}
+    #contact-modal button[type="submit"]:hover{background:#267a42;}
+    @media(max-width:600px){#contact-modal-inner{padding:32px 20px;}#contact-modal .cm-row{flex-direction:column;gap:0;}}
+  </style>
+  <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cm-heading">
+    <div id="contact-modal-inner">
+      <button id="cm-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+      <h3 id="cm-heading" style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.03em;margin:0 0 6px;color:#1a1a1a;">Let's Connect</h3>
+      <p style="font-family:'Inter',sans-serif;font-size:0.95rem;color:#888;margin:0 0 28px;">Tell us about your project — we'll follow up shortly.</p>
+      <form action="https://usebasin.com/f/e0e806885330" method="POST" accept-charset="utf-8">
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-first">First Name</label><input type="text" id="cm-first" name="first_name" required></div>
+          <div class="cm-field"><label for="cm-last">Last Name</label><input type="text" id="cm-last" name="last_name" required></div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-phone">Phone Number</label><input type="tel" id="cm-phone" name="phone_number" required></div>
+          <div class="cm-field"><label for="cm-email">Email</label><input type="email" id="cm-email" name="email" required></div>
+        </div>
+        <div class="cm-field"><label for="cm-website">Organization Website</label><input type="url" id="cm-website" name="organization_website" required></div>
+        <fieldset>
+          <legend>Interested in (select all that apply)</legend>
+          <label><input type="checkbox" name="interested_in[]" value="awards"> Awards</label>
+          <label><input type="checkbox" name="interested_in[]" value="gifts"> Gifts</label>
+          <label><input type="checkbox" name="interested_in[]" value="merchandise"> Merchandise</label>
+        </fieldset>
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-qty">Quantities (minimum 10 units)</label><select id="cm-qty" name="quantities" required><option value="">Select…</option><option value="10-50">10–50</option><option value="50-100">50–100</option><option value="100+">100+</option><option value="not_sure">Not sure yet</option></select></div>
+          <div class="cm-field"><label for="cm-timeline">Timeline (optional)</label><input type="text" id="cm-timeline" name="timeline" maxlength="25"></div>
+        </div>
+        <div class="cm-field"><label for="cm-message">Message (optional, max 250 chars)</label><textarea id="cm-message" name="message" maxlength="250" rows="6"></textarea></div>
+        <div class="cm-field"><button type="submit">Submit</button></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var modal=document.getElementById('contact-modal');
+      function openContactModal(){var sy=window.scrollY||window.pageYOffset;document.body.style.top='-'+sy+'px';document.body.style.position='fixed';document.body.style.width='100%';document.body.style.overflow='hidden';modal.style.display='flex';}
+      function closeContactModal(){var sy=parseInt(document.body.style.top||'0')*-1;document.body.style.position='';document.body.style.top='';document.body.style.width='';document.body.style.overflow='';modal.style.display='none';window.scrollTo(0,sy);}
+      window.openContactModal=openContactModal;
+      window.closeContactModal=closeContactModal;
+      modal.addEventListener('click',function(e){if(e.target===modal)closeContactModal();});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')closeContactModal();});
+      document.querySelectorAll('a[href="#contact"],a[href="index.html#contact"]').forEach(function(el){
+        el.addEventListener('click',function(e){e.preventDefault();openContactModal();});
+      });
+    })();
+  </script>
 </body>
 </html>

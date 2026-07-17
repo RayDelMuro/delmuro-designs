@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Videos | DelMuro Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pv-hero {
+      background: var(--near-black);
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    .pv-hero__eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--bright-green);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .pv-hero__eyebrow::before,
+    .pv-hero__eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1.5px;
+      background: var(--bright-green);
+      opacity: 0.5;
+    }
+    .pv-hero__headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+    }
+    .pv-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Video grid ─────────────────────────────────── */
+    .pv-grid {
+      background: var(--off-white);
+      padding: var(--section-pad) 0;
+    }
+    .pv-grid__inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pv-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pv-card__video {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--near-black);
+    }
+    .pv-card__video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .pv-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pv-card__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green-accent);
+    }
+    .pv-card__title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .pv-card__desc {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--gray-mid);
+      margin: 0;
+    }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .pv-grid__inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .pv-grid__inner { grid-template-columns: 1fr; }
+      .pv-hero { padding: 120px 0 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo"><img src="images/DD LOGOS/med Horizontal ACTIVE DD logo no taglines.png" alt="DelMuro Designs"></a>
+      <div class="nav__links">
+        <a href="process.html">Proven Process</a>
+        <a href="projects.html">Projects</a>
+        <a href="press.html">Press</a>
+        <a href="about.html">Passions</a>
+        <a href="index.html#contact" class="btn btn--sm">Let's Connect</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pv-hero">
+    <div class="container">
+      <p class="pv-hero__eyebrow">Behind the Build</p>
+      <h1 class="pv-hero__headline">Project Videos</h1>
+      <p class="pv-hero__sub">See the craft, the story, and the impact — from raw materials to finished recognition.</p>
+    </div>
+  </section>
+
+  <!-- VIDEO GRID -->
+  <section class="pv-grid">
+    <div class="container">
+      <div class="pv-grid__inner">
+
+        <div class="pv-card">
+          <div class="pv-card__video">
+            <video controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:12px;background:#000;">
+              <source src="videos/GSA 2026 Awards_Ray DelMuro_version to share.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="pv-card__body">
+            <span class="pv-card__label">Green Sports Alliance</span>
+            <h2 class="pv-card__title">Green Sports Alliance Awards</h2>
+          </div>
+        </div>
+
+        <div class="pv-card">
+          <div class="pv-card__video">
+            <video controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:12px;background:#000;">
+              <source src="videos/2024 MLB sustainability awards short video_ by Ray DelMuro.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="pv-card__body">
+            <span class="pv-card__label">Major League Baseball</span>
+            <h2 class="pv-card__title">MLB Sustainability Trophy</h2>
+          </div>
+        </div>
+
+        <div class="pv-card">
+          <div class="pv-card__video">
+            <video controls playsinline preload="metadata" poster="images/Video/Titos and KPB thumbnail.jpg" style="position:absolute;inset:0;width:100%;height:100%;border-radius:12px;background:#000;">
+              <source src="videos/Titos B2B - Longer.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="pv-card__body">
+            <span class="pv-card__label">Tito's & Keep Phoenix Beautiful</span>
+            <h2 class="pv-card__title">Tito's & Keep Phoenix Beautiful Collaboration</h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FINAL CTA -->
+  <section class="cta-final" id="contact">
+    <div class="container">
+      <h2 class="cta-final__headline">Green &amp; Greener</h2>
+      <p class="cta-final__body">Flip the script on sustainability as an expense.<br>Awards, gifts, merchandise &mdash; as tangible and lasting relationship building assets<br>built to drive real business outcomes.</p>
+      <div class="cta-final__buttons">
+        <a href="#contact" class="btn btn--primary btn--lg">Let's Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo"><img src="images/DD LOGOS/med Horizontal ACTIVE DD logo no taglines.png" alt="DelMuro Designs"></div>
+      <p class="footer__copy">&copy; 2026 DelMuro Designs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="script.js"></script>
+
+  <!-- CONTACT MODAL -->
+  <style>
+    #contact-modal{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;overflow-y:auto;}
+    #contact-modal-inner{background:#fff;border-radius:16px;padding:48px 48px 40px;max-width:660px;width:100%;position:relative;margin:auto;}
+    #cm-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:2rem;cursor:pointer;color:#aaa;line-height:1;padding:4px 8px;}
+    #cm-close:hover{color:#333;}
+    #contact-modal form{width:100%;font-family:'Inter',system-ui,sans-serif;}
+    #contact-modal form *{box-sizing:border-box;}
+    #contact-modal .cm-field{display:block;width:100%;margin-bottom:14px;}
+    #contact-modal .cm-field label{display:block;margin-bottom:5px;font-size:0.875rem;color:#374151;font-weight:500;}
+    #contact-modal input[type="text"],#contact-modal input[type="url"],#contact-modal input[type="email"],#contact-modal select,#contact-modal textarea{width:100%;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;font-family:inherit;font-size:0.95rem;color:#111;}
+    #contact-modal input:focus,#contact-modal select:focus,#contact-modal textarea:focus{outline:none;border-color:#2F8F4E;box-shadow:0 0 0 3px rgba(47,143,78,0.15);}
+    #contact-modal textarea{resize:vertical;}
+    #contact-modal fieldset{border:0;padding:0;margin:0 0 14px;}
+    #contact-modal fieldset legend{display:block;margin-bottom:8px;font-size:0.875rem;color:#374151;font-weight:500;}
+    #contact-modal fieldset label{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:0.9rem;color:#374151;}
+    #contact-modal .cm-row{display:flex;gap:16px;}
+    #contact-modal .cm-row .cm-field{flex:1;min-width:0;}
+    #contact-modal button[type="submit"]{width:100%;padding:13px 24px;border-radius:8px;border:none;background:#2F8F4E;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;transition:background 0.2s;}
+    #contact-modal button[type="submit"]:hover{background:#267a42;}
+    @media(max-width:600px){#contact-modal-inner{padding:32px 20px;}#contact-modal .cm-row{flex-direction:column;gap:0;}}
+  </style>
+  <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cm-heading">
+    <div id="contact-modal-inner">
+      <button id="cm-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+      <h3 id="cm-heading" style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.03em;margin:0 0 6px;color:#1a1a1a;">Let's Connect</h3>
+      <p style="font-family:'Inter',sans-serif;font-size:0.95rem;color:#888;margin:0 0 28px;">Tell us about your project — we'll follow up shortly.</p>
+      <form action="https://usebasin.com/f/e0e806885330" method="POST" accept-charset="utf-8">
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-first">First Name</label><input type="text" id="cm-first" name="first_name" required></div>
+          <div class="cm-field"><label for="cm-last">Last Name</label><input type="text" id="cm-last" name="last_name" required></div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-phone">Phone Number</label><input type="tel" id="cm-phone" name="phone_number" required></div>
+          <div class="cm-field"><label for="cm-email">Email</label><input type="email" id="cm-email" name="email" required></div>
+        </div>
+        <div class="cm-field"><label for="cm-website">Organization Website</label><input type="url" id="cm-website" name="organization_website" required></div>
+        <fieldset>
+          <legend>Interested in (select all that apply)</legend>
+          <label><input type="checkbox" name="interested_in[]" value="awards"> Awards</label>
+          <label><input type="checkbox" name="interested_in[]" value="gifts"> Gifts</label>
+          <label><input type="checkbox" name="interested_in[]" value="merchandise"> Merchandise</label>
+        </fieldset>
+        <div class="cm-row">
+          <div class="cm-field"><label for="cm-qty">Quantities (minimum 10 units)</label><select id="cm-qty" name="quantities" required><option value="">Select…</option><option value="10-50">10–50</option><option value="50-100">50–100</option><option value="100+">100+</option><option value="not_sure">Not sure yet</option></select></div>
+          <div class="cm-field"><label for="cm-timeline">Timeline (optional)</label><input type="text" id="cm-timeline" name="timeline" maxlength="25"></div>
+        </div>
+        <div class="cm-field"><label for="cm-message">Message (optional, max 250 chars)</label><textarea id="cm-message" name="message" maxlength="250" rows="6"></textarea></div>
+        <div class="cm-field"><button type="submit">Submit</button></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var modal=document.getElementById('contact-modal');
+      function openContactModal(){var sy=window.scrollY||window.pageYOffset;document.body.style.top='-'+sy+'px';document.body.style.position='fixed';document.body.style.width='100%';document.body.style.overflow='hidden';modal.style.display='flex';}
+      function closeContactModal(){var sy=parseInt(document.body.style.top||'0')*-1;document.body.style.position='';document.body.style.top='';document.body.style.width='';document.body.style.overflow='';modal.style.display='none';window.scrollTo(0,sy);}
+      window.openContactModal=openContactModal;
+      window.closeContactModal=closeContactModal;
+      modal.addEventListener('click',function(e){if(e.target===modal)closeContactModal();});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')closeContactModal();});
+      document.querySelectorAll('a[href="#contact"],a[href="index.html#contact"]').forEach(function(el){
+        el.addEventListener('click',function(e){e.preventDefault();openContactModal();});
+      });
+    })();
+  </script>
+</body>
+</html>
