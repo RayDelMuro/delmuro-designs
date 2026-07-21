@@ -2340,6 +2340,7 @@ h1, h2, h3, h4 {
   .hero__collage { aspect-ratio: auto; }
   .hero__image-caption { opacity: 1; transform: none; transition: none; }
   .hero__headline { font-size: clamp(1.1rem, 4.88vw, 1.82rem); }
+  .section__eyebrow--lg { font-size: 1.05rem; letter-spacing: 0.1em; line-height: 1.4; }
   .hero__subhead { font-size: 0.95rem; max-width: 100%; }
   .hero__support { margin-bottom: 28px; max-width: 100%; font-size: 0.95rem; }
   .hero__ctas { width: 100%; }
