@@ -2389,6 +2389,9 @@ h1, h2, h3, h4 {
 @media (max-width: 620px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
+  .proj-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .proj-grid--flip > div:first-child { order: 2; }
+  .proj-grid--flip > div:last-child { order: 1; }
   .hero { padding: 60px 0 48px; min-height: auto; }
   .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
   .hero__animation-iframe { display: none; }
