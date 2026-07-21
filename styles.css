@@ -2419,10 +2419,21 @@ h1, h2, h3, h4 {
   .hero__image-caption { opacity: 1; transform: none; transition: none; }
   .hero__headline { font-size: clamp(1.1rem, 4.88vw, 1.82rem); }
   .section__eyebrow--lg { font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; text-transform: none; }
-  .hero__subhead { font-size: 0.95rem; max-width: 100%; }
-  .hero__support { margin-bottom: 28px; max-width: 100%; font-size: 0.95rem; }
+  .hero__subhead { font-size: 1rem; max-width: 100%; }
+  .hero__support { margin-bottom: 28px; max-width: 100%; font-size: 1rem; }
   .hero__ctas { width: 100%; }
   .hero__ctas .btn { width: 100%; text-align: center; white-space: normal; line-height: 1.4; }
+
+  /* Standardise all body/paragraph text to 1rem on mobile */
+  .hero__body,
+  .visibility__body,
+  .visibility__subhead,
+  .visibility__list li,
+  .relationships__subhead,
+  .case__block p,
+  .testimonial__text,
+  .tp-step__text,
+  .cta-final__body { font-size: 1rem; }
 
   /* All section headings match H1 weight + line-height on mobile */
   .section__headline,
