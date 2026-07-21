@@ -503,13 +503,26 @@
     }
     [data-lb] { cursor: zoom-in; }
     @media (max-width: 620px) {
-      .tri-table { min-width: 0 !important; font-size: 0.78rem; }
-      .tri-table th, .tri-table td { padding: 8px 10px !important; }
-      .tri-table th div:first-child { font-size: 1rem !important; }
-      .tri-table th div:last-child { font-size: 0.7rem !important; }
-      .tri-table td div:first-child { font-size: 0.82rem !important; }
-      .tri-table td div:last-child { font-size: 0.7rem !important; }
-      .tri-table td[style*="1.18rem"] { font-size: 0.9rem !important; }
+      .tri-table-wrap { border-radius: 8px !important; }
+      .tri-table {
+        min-width: 0 !important;
+        width: 100% !important;
+        table-layout: fixed !important;
+      }
+      .tri-table th,
+      .tri-table td {
+        padding: 7px 6px !important;
+        word-break: break-word !important;
+        font-size: 0.72rem !important;
+      }
+      .tri-table th div,
+      .tri-table th span,
+      .tri-table td div,
+      .tri-table td span {
+        font-size: 0.72rem !important;
+        letter-spacing: 0 !important;
+      }
+      .tri-table th div:first-child { font-size: 0.82rem !important; }
     }
   </style>
 </head>
