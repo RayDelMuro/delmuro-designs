@@ -509,20 +509,27 @@
         width: 100% !important;
         table-layout: fixed !important;
       }
-      .tri-table th,
+      .tri-table th {
+        padding: 7px 4px !important;
+        text-align: center !important;
+        font-size: 0.65rem !important;
+      }
       .tri-table td {
-        padding: 7px 6px !important;
+        padding: 6px 4px !important;
         word-break: break-word !important;
-        font-size: 0.72rem !important;
+        font-size: 0.65rem !important;
+        white-space: nowrap !important;
       }
       .tri-table th div,
       .tri-table th span,
       .tri-table td div,
       .tri-table td span {
-        font-size: 0.72rem !important;
+        font-size: 0.65rem !important;
         letter-spacing: 0 !important;
+        white-space: normal !important;
       }
-      .tri-table th div:first-child { font-size: 0.82rem !important; }
+      .tri-table th div:first-child { font-size: 0.75rem !important; text-align: center !important; }
+      .tri-table td div:first-child { font-size: 0.68rem !important; }
     }
   </style>
 </head>
