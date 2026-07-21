@@ -502,6 +502,15 @@
       letter-spacing: 0.1em;
     }
     [data-lb] { cursor: zoom-in; }
+    @media (max-width: 620px) {
+      .tri-table { min-width: 0 !important; font-size: 0.78rem; }
+      .tri-table th, .tri-table td { padding: 8px 10px !important; }
+      .tri-table th div:first-child { font-size: 1rem !important; }
+      .tri-table th div:last-child { font-size: 0.7rem !important; }
+      .tri-table td div:first-child { font-size: 0.82rem !important; }
+      .tri-table td div:last-child { font-size: 0.7rem !important; }
+      .tri-table td[style*="1.18rem"] { font-size: 0.9rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -582,9 +591,9 @@
         <p style="font-family:'Inter',sans-serif; font-weight:400; font-size:1.05rem; line-height:1.65; color:#3A3D3B; margin:0;">We are driven as a group to combine same three human faculties that have been written about as inseparable and interconnected for over 2,400 years. What Plato calls Truth, Beauty, and Goodness can be viewed as the <strong style="color:#3D6E8E; font-weight:600;">head</strong> that reasons, the <strong style="color:#C2596A; font-weight:600;">heart</strong> that feels, and the <strong style="color:#2F8F4E; font-weight:600;">hands</strong> that act. Logic, emotion, and morality. Think: organs and an organism. 3 and also 1. We have endeavored to functionally combine these 3 interrelated ideals into a vehicle for turning green into growth&hellip; through your most important relationships. We do so by using engineering, art, and shared values in action as tools to help you connect over time on all three fundamental levels.</p>
       </div>
 
-      <div style="background:#FFFFFF; border:1px solid #D2CCCC; border-radius:14px; box-shadow:4px 6px 0 0 #627E8B; overflow:hidden;">
+      <div class="tri-table-wrap" style="background:#FFFFFF; border:1px solid #D2CCCC; border-radius:14px; box-shadow:4px 6px 0 0 #627E8B; overflow:hidden;">
         <div style="overflow-x:auto;">
-          <table style="width:100%; border-collapse:collapse; min-width:720px;">
+          <table class="tri-table" style="width:100%; border-collapse:collapse; min-width:720px;">
             <thead>
               <tr>
                 <th style="text-align:left; vertical-align:bottom; padding:16px 24px; background:#F4F6F3; border-bottom:2px solid #E4E2E2;">
