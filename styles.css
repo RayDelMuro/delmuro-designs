@@ -2426,6 +2426,7 @@ h1, h2, h3, h4 {
 
   /* Story Worth Sharing grid: ensure both columns fit on screen */
   .sws-row { padding: 0 16px; box-sizing: border-box; }
+  .sws-col { gap: 8px; }
   .sws-tile-title { font-size: 0.92rem; }
 
   /* Standardise all body/paragraph text to 0.92rem on mobile */
