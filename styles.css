@@ -2407,8 +2407,8 @@ h1, h2, h3, h4 {
   .proj-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
   .proj-grid--flip > div:first-child { order: 2; }
   .proj-grid--flip > div:last-child { order: 1; }
-  .hero { padding: 60px 0 48px; min-height: auto; }
-  .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
+  .hero { padding: 96px 0 48px; min-height: auto; }
+  .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 0; }
   .hero__headline { grid-column: auto; grid-row: auto; order: 1; padding-top: 0; }
   .hero__visual { grid-column: auto; grid-row: auto; order: 2; }
   .hero__copy { grid-column: auto; grid-row: auto; order: 3; }
