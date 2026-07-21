@@ -307,3 +307,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   });
 })();
+
+// === MOBILE NAV HAMBURGER ===
+(function () {
+  const nav = document.querySelector('.nav');
+  const hamburger = document.querySelector('.nav__hamburger');
+  if (!nav || !hamburger) return;
+
+  hamburger.addEventListener('click', function () {
+    const isOpen = nav.classList.toggle('nav--open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.nav__mobile-menu a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('nav--open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove('nav--open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
