@@ -223,7 +223,7 @@ h1, h2, h3, h4 {
   min-height: 55vh;
   display: flex;
   align-items: flex-start;
-  padding: 25px 0 36px;
+  padding: 42px 0 36px;
   position: relative;
   overflow-x: hidden;
 }
@@ -2282,7 +2282,7 @@ h1, h2, h3, h4 {
   .step:last-child { border-bottom: none; }
 
   /* Hero: tighten gap, square collage */
-  .hero { padding: 25px 0 56px; }
+  .hero { padding: 42px 0 56px; }
   .hero__inner { gap: 48px; }
   .hero__collage { aspect-ratio: 1/1; }
 }
@@ -2314,7 +2314,7 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 860px) {
-  .hero { padding: 25px 0 56px; }
+  .hero { padding: 42px 0 56px; }
   .hero__inner { gap: 32px; }
   .hero__collage { aspect-ratio: 1/1; }
   .hero__headline { font-size: clamp(1.07rem, 2.73vw, 1.82rem); }
@@ -2324,7 +2324,7 @@ h1, h2, h3, h4 {
 
 /* Stack hero only at genuinely small screens */
 @media (max-width: 620px) {
-  .hero { padding: 44px 0 48px; min-height: auto; }
+  .hero { padding: 60px 0 48px; min-height: auto; }
   .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
   .hero__collage { aspect-ratio: 16/9; }
   .hero__headline { font-size: clamp(1.1rem, 4.88vw, 1.82rem); }
