@@ -2417,6 +2417,20 @@ h1, h2, h3, h4 {
   .hero__support { margin-bottom: 28px; max-width: 100%; font-size: 0.95rem; }
   .hero__ctas { width: 100%; }
   .hero__ctas .btn { width: 100%; text-align: center; white-space: normal; line-height: 1.4; }
+
+  /* All section headings match H1 weight + line-height on mobile */
+  .section__headline,
+  .vrc-headline,
+  .visibility__headline,
+  .sws-headline,
+  .dm-pp-headline,
+  .tp-headline,
+  .faq-headline,
+  .cta-final__headline,
+  .bento__cell--headline h2 {
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+  }
 }
 
 @media (max-width: 768px) {
