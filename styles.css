@@ -308,31 +308,20 @@ h1, h2, h3, h4 {
   padding-top: 30px;
 }
 
-.hero__tagline {
-  grid-column: 1;
-  grid-row: 2;
-  font-family: var(--font-head);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  margin: 0 0 8px;
-}
-
 .hero__copy {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 2;
 }
 
 .hero__visual {
   grid-column: 2;
-  grid-row: 1 / span 4;
+  grid-row: 1 / span 3;
   align-self: center;
 }
 
 .hero__ctas {
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 3;
   align-self: start;
 }
 
@@ -2421,7 +2410,6 @@ h1, h2, h3, h4 {
   .hero { padding: 96px 0 48px; min-height: auto; }
   .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 0; }
   .hero__headline { grid-column: auto; grid-row: auto; order: 1; padding-top: 0; }
-  .hero__tagline { grid-column: auto; grid-row: auto; order: 1; font-size: clamp(1rem, 4.5vw, 1.3rem); }
   .hero__visual { grid-column: auto; grid-row: auto; order: 2; }
   .hero__copy { grid-column: auto; grid-row: auto; order: 3; }
   .hero__ctas { grid-column: auto; grid-row: auto; order: 4; width: 100%; }
