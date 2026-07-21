@@ -2433,10 +2433,10 @@ h1, h2, h3, h4 {
   .case__block p,
   .testimonial__text,
   .tp-step__text,
-  .cta-final__body,
   .dm-pp-lede,
   .bento__tags span,
   .diff__item p { font-size: 0.92rem; }
+  .cta-final__body { font-size: 0.82rem; }
 
   /* All section headings standardised to 1.5rem on mobile */
   .section__headline,
