@@ -2418,7 +2418,7 @@ h1, h2, h3, h4 {
   .hero__collage { aspect-ratio: auto; }
   .hero__image-caption { opacity: 1; transform: none; transition: none; }
   .hero__headline { font-size: clamp(1.1rem, 4.88vw, 1.82rem); }
-  .section__eyebrow--lg { font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; text-transform: none; }
+  .section__eyebrow--lg { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.2; text-transform: none; }
   .hero__subhead { font-size: 1rem; max-width: 100%; }
   .hero__support { margin-bottom: 28px; max-width: 100%; font-size: 1rem; }
   .hero__ctas { width: 100%; }
@@ -2435,7 +2435,7 @@ h1, h2, h3, h4 {
   .tp-step__text,
   .cta-final__body { font-size: 1rem; }
 
-  /* All section headings match H1 weight + line-height on mobile */
+  /* All section headings standardised to 1.5rem on mobile */
   .section__headline,
   .vrc-headline,
   .visibility__headline,
@@ -2445,6 +2445,7 @@ h1, h2, h3, h4 {
   .faq-headline,
   .cta-final__headline,
   .bento__cell--headline h2 {
+    font-size: 1.5rem !important;
     font-weight: 900 !important;
     line-height: 1.2 !important;
   }
@@ -2459,7 +2460,7 @@ h1, h2, h3, h4 {
   .trust__logo img { height: 64px; max-width: 140px; }
   .trust__divider { display: none; }
   .trust__proof { width: 100%; margin-left: 0; padding: 32px 0 0; gap: 16px 32px; }
-  .trust__headline { font-size: 1.1rem; margin-bottom: 32px; }
+  .trust__headline { font-size: 1.5rem; margin-bottom: 32px; }
 
   .problem__layout { grid-template-columns: 1fr; }
   .problem__image { display: none; }
