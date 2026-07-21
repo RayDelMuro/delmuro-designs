@@ -366,6 +366,15 @@ h1, h2, h3, h4 {
   opacity: 1;
 }
 
+.hero__static-img {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero__image-caption {
   margin: 16px 0 0;
   font-family: "Montserrat", sans-serif;
@@ -2326,6 +2335,8 @@ h1, h2, h3, h4 {
 @media (max-width: 620px) {
   .hero { padding: 60px 0 48px; min-height: auto; }
   .hero__inner { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
+  .hero__animation-iframe { display: none; }
+  .hero__static-img { display: block; }
   .hero__collage { aspect-ratio: 16/9; }
   .hero__headline { font-size: clamp(1.1rem, 4.88vw, 1.82rem); }
   .hero__subhead { font-size: 0.95rem; max-width: 100%; }
