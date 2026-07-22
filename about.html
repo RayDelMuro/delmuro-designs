@@ -503,33 +503,53 @@
     }
     [data-lb] { cursor: zoom-in; }
     @media (max-width: 620px) {
+      #open-gallery {
+        white-space: normal !important;
+        line-height: 1.4;
+        max-width: 200px;
+      }
       .tri-table-wrap { border-radius: 8px !important; }
       .tri-table {
         min-width: 0 !important;
         width: 100% !important;
         table-layout: fixed !important;
       }
+      /* First column gets a bit more room for row labels */
+      .tri-table th:first-child,
+      .tri-table td:first-child {
+        width: 30% !important;
+      }
       .tri-table th {
-        padding: 7px 4px !important;
+        padding: 6px 3px !important;
         text-align: center !important;
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
+        word-break: break-word !important;
+        white-space: normal !important;
       }
       .tri-table td {
-        padding: 6px 4px !important;
+        padding: 5px 3px !important;
+        font-size: 0.62rem !important;
         word-break: break-word !important;
-        font-size: 0.65rem !important;
-        white-space: nowrap !important;
+        white-space: normal !important;
+        text-align: center !important;
       }
+      .tri-table td:first-child { text-align: left !important; }
+      /* All divs/spans inside cells */
       .tri-table th div,
       .tri-table th span,
       .tri-table td div,
       .tri-table td span {
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
         letter-spacing: 0 !important;
         white-space: normal !important;
+        word-break: break-word !important;
       }
-      .tri-table th div:first-child { font-size: 0.75rem !important; text-align: center !important; }
-      .tri-table td div:first-child { font-size: 0.68rem !important; }
+      /* Column headers (Head / Heart / Hands) */
+      .tri-table th div:first-child { font-size: 0.68rem !important; }
+      /* Row label titles (Plato's Big Three, etc.) */
+      .tri-table td:first-child div:first-child { font-size: 0.6rem !important; }
+      /* Row label subtitles (the philosophy, etc.) */
+      .tri-table td:first-child div:last-child { font-size: 0.52rem !important; }
     }
   </style>
 </head>
