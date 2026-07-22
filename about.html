@@ -1035,32 +1035,67 @@
 
   <script>
     (function () {
+      var probe = null;
+
+      function getProbe() {
+        if (!probe) {
+          probe = document.createElement('span');
+          probe.style.cssText = 'position:absolute;left:-9999px;top:-9999px;white-space:nowrap;visibility:hidden;pointer-events:none;';
+          document.body.appendChild(probe);
+        }
+        return probe;
+      }
+
+      function measureText(text, el) {
+        var cs = window.getComputedStyle(el);
+        var p = getProbe();
+        p.style.fontFamily    = cs.fontFamily;
+        p.style.fontWeight    = cs.fontWeight;
+        p.style.fontSize      = cs.fontSize;
+        p.style.fontStyle     = cs.fontStyle;
+        p.style.letterSpacing = cs.letterSpacing;
+        p.textContent = text;
+        return p.getBoundingClientRect().width;
+      }
+
+      // 4px buffer guards against iOS Safari rendering Montserrat slightly wider than Chrome
+      var BUFFER = 4;
+
+      function shrinkCell(el, text, available) {
+        el.style.removeProperty('font-size');          // clear any previous JS value
+        var cs   = window.getComputedStyle(el);
+        var size = parseFloat(cs.fontSize);
+        if (measureText(text, el) <= available - BUFFER) return;
+        while (size > 7) {
+          size -= 0.5;
+          // inline !important beats stylesheet !important so the element actually changes size
+          el.style.setProperty('font-size', size + 'px', 'important');
+          if (measureText(text, el) <= available - BUFFER) break;
+        }
+      }
+
       function shrinkTriTableWords() {
         if (window.innerWidth > 620) return;
 
-        // Single-word data cells (Truth, Engineering, Performance, etc.)
         document.querySelectorAll('.tri-table td:not(:first-child)').forEach(function (cell) {
-          cell.style.fontSize = '';
-          var size = parseFloat(window.getComputedStyle(cell).fontSize);
-          while (cell.scrollWidth > cell.clientWidth + 1 && size > 7) {
-            size -= 0.5;
-            cell.style.fontSize = size + 'px';
-          }
+          var cs = window.getComputedStyle(cell);
+          var available = cell.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+          shrinkCell(cell, cell.textContent.trim(), available);
         });
 
-        // Header main words (Head / Heart / Hands)
         document.querySelectorAll('.tri-table th:not(:first-child) div:first-child').forEach(function (div) {
-          div.style.fontSize = '';
           var th = div.closest('th');
-          var size = parseFloat(window.getComputedStyle(div).fontSize);
-          while (div.scrollWidth > th.clientWidth - 6 && size > 7) {
-            size -= 0.5;
-            div.style.fontSize = size + 'px';
-          }
+          var cs = window.getComputedStyle(th);
+          var available = th.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+          shrinkCell(div, div.textContent.trim(), available);
         });
       }
 
-      document.addEventListener('DOMContentLoaded', shrinkTriTableWords);
+      // Wait for web fonts (Montserrat) before measuring
+      var ready = (document.fonts && document.fonts.ready)
+        ? document.fonts.ready
+        : Promise.resolve();
+      ready.then(shrinkTriTableWords);
       window.addEventListener('resize', shrinkTriTableWords);
     })();
   </script>
