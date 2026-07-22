@@ -529,11 +529,18 @@
       .tri-table td {
         padding: 5px 3px !important;
         font-size: 0.62rem !important;
-        word-break: break-word !important;
-        white-space: normal !important;
+        word-break: normal !important;
+        white-space: nowrap !important;
         text-align: center !important;
+        overflow: hidden !important;
       }
-      .tri-table td:first-child { text-align: left !important; }
+      /* First column labels can wrap between words, not mid-word */
+      .tri-table td:first-child {
+        text-align: left !important;
+        white-space: normal !important;
+        word-break: keep-all !important;
+        overflow: visible !important;
+      }
       /* All divs/spans inside cells */
       .tri-table th div,
       .tri-table th span,
@@ -542,7 +549,7 @@
         font-size: 0.6rem !important;
         letter-spacing: 0 !important;
         white-space: normal !important;
-        word-break: break-word !important;
+        word-break: keep-all !important;
       }
       /* Column headers (Head / Heart / Hands) */
       .tri-table th div:first-child { font-size: 0.68rem !important; }
@@ -1023,6 +1030,38 @@
       document.querySelectorAll('a[href="#contact"],a[href="index.html#contact"]').forEach(function(el){
         el.addEventListener('click',function(e){e.preventDefault();openContactModal();});
       });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      function shrinkTriTableWords() {
+        if (window.innerWidth > 620) return;
+
+        // Single-word data cells (Truth, Engineering, Performance, etc.)
+        document.querySelectorAll('.tri-table td:not(:first-child)').forEach(function (cell) {
+          cell.style.fontSize = '';
+          var size = parseFloat(window.getComputedStyle(cell).fontSize);
+          while (cell.scrollWidth > cell.clientWidth + 1 && size > 7) {
+            size -= 0.5;
+            cell.style.fontSize = size + 'px';
+          }
+        });
+
+        // Header main words (Head / Heart / Hands)
+        document.querySelectorAll('.tri-table th:not(:first-child) div:first-child').forEach(function (div) {
+          div.style.fontSize = '';
+          var th = div.closest('th');
+          var size = parseFloat(window.getComputedStyle(div).fontSize);
+          while (div.scrollWidth > th.clientWidth - 6 && size > 7) {
+            size -= 0.5;
+            div.style.fontSize = size + 'px';
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', shrinkTriTableWords);
+      window.addEventListener('resize', shrinkTriTableWords);
     })();
   </script>
 </body>
