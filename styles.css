@@ -2872,4 +2872,5 @@ h1, h2, h3, h4 {
   .fw-hub__icon { width: 36px; height: 36px; }
   .fw-hub__line { font-size: 1.05rem; }
   .fw-hub__note { display: none; }
+  .fw-hub { padding-bottom: 20px; }
 }
