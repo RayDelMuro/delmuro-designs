@@ -2348,16 +2348,20 @@ h1, h2, h3, h4 {
 }
 
 .footer__tagline {
-  color: rgba(255,255,255,0.3);
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
+  font-family: var(--font-head);
+  font-size: clamp(1.0rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--white);
+  margin: 21px 0 0;
 }
-
 .footer__copy {
   color: rgba(255,255,255,0.2);
   font-size: 0.8rem;
+  margin-top: 15px;
 }
 
 
