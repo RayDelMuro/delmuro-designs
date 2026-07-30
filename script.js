@@ -135,6 +135,7 @@
 
 // === PROVEN PROCESS — hover-to-activate + progress rail ===
 (function(){
+  // Tall-column track layout (process.html)
   document.querySelectorAll('.dm-proven-process').forEach(function(section){
     var steps = section.querySelectorAll('.dm-pp-step');
     var fill  = section.querySelector('.dm-pp-fill');
@@ -155,6 +156,32 @@
 
     if (track){
       track.addEventListener('mouseleave', function(){ activate(0); });
+    }
+  });
+
+  // Compact box layout (index.html)
+  document.querySelectorAll('.dm-pp-boxes-grid').forEach(function(grid){
+    var boxes     = grid.querySelectorAll('.dm-pp-box');
+    var wrap      = grid.closest('.dm-pp-boxes-wrap');
+    var railFill  = wrap ? wrap.querySelector('.dm-pp-srail__fill') : null;
+    var railSteps = wrap ? wrap.querySelectorAll('.dm-pp-srail__step') : [];
+    if (!boxes.length) return;
+
+    function activate(i){
+      boxes.forEach(function(b, idx){ b.classList.toggle('is-active', idx === i); });
+      railSteps.forEach(function(s, idx){
+        s.classList.toggle('is-active',    idx === i);
+        s.classList.toggle('is-completed', idx < i);
+      });
+      if (railFill) railFill.style.width = (((i + 1) / boxes.length) * 100) + '%';
+    }
+
+    boxes.forEach(function(box, i){
+      box.addEventListener('mouseenter', function(){ activate(i); });
+    });
+
+    if (wrap){
+      wrap.addEventListener('mouseleave', function(){ activate(0); });
     }
   });
 })();
