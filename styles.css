@@ -1890,9 +1890,9 @@ h1, h2, h3, h4 {
   font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;
   color:var(--dm-ink);margin:0 0 16px;max-width:100%;width:100%;}
 .dm-pp-lede{font-family:"Inter",sans-serif;font-weight:500;font-size:1.155rem;
-  line-height:1.65;color:var(--dm-ink-soft);max-width:100%;margin:0 0 64px;}
+  line-height:1.65;color:var(--dm-ink-soft);max-width:100%;margin:0 0 10px;}
 .dm-pp-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  margin-bottom:64px;border-top:1px solid var(--dm-rule);
+  margin-top:54px;margin-bottom:64px;border-top:1px solid var(--dm-rule);
   border-bottom:1px solid var(--dm-rule);padding:20px 0;}
 .dm-pp-meta .dm-pp-meta-item{display:flex;flex-direction:column;gap:6px;}
 .dm-pp-meta .dm-pp-k{font-family:"Montserrat",sans-serif;font-weight:700;font-size:.72rem;
@@ -2597,7 +2597,7 @@ h1, h2, h3, h4 {
 @media (max-width: 560px) {
   .dm-pp-container { padding: 0 20px; }
   .dm-pp-headline { font-size: clamp(1.3rem, 5vw, 1.8rem); }
-  .dm-pp-lede { font-size: 0.92rem; margin-bottom: 40px; }
+  .dm-pp-lede { font-size: 0.92rem; }
   .sws-head { margin-top: 44px; margin-bottom: 28px; }
   .hero__subheadline { font-size: 0.82rem; }
   .rel__card { min-height: 260px; }
